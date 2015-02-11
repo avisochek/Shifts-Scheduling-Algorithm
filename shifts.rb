@@ -78,7 +78,7 @@ end
 	###################
 	###################
 	      #SETUP
-
+### This needs some work, basically this whole part will turn the roster files into data structures for the algorithm...
 
 shifts = 
 
@@ -98,13 +98,13 @@ while count < max_iter
 	order = Array.new(n) {|i| i+1}
 	order.shuffle!
 
-	for i in order ### iterate through the 
-		if roster[i]['overstaffed'] > 0  then ### drop the request from the roster with the greatest benefit / least cost
+	for block in order ### iterate through the blocks in a randomized or
+		if roster[block]['overstaffed'] > 0  then ### drop the request from the roster with the greatest benefit / least cost
 			min_cost = 0
 
-			for request_id in roster[i]['active_requests']
+			for request_id in roster[block]['active_requests']
 
-				truncation_id, cost = get_cost(q,i,0)
+				permutation_id, cost = get_cost(q,i,0)
 				if cost < min_cost
 					update = [request_id,truncation_id]
 					min_cost = cost
@@ -116,7 +116,7 @@ while count < max_iter
 			min_cost = 0
 			for request_id in roster[i]['inactive_requests']
 
-				truncation_id, cost = get_cost(q,i,1)
+				permutation_id, cost = get_cost(q,i,1)
 				if cost < min_cost
 					update = [request_id,truncation_id]
 					min_cost = cost

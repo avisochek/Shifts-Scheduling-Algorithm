@@ -1,19 +1,64 @@
-	#################
-	#################
-	#################
-	    #DEFINITIONS
+#
+#
+#
+###################
+###################
+###################
+      #SETUP
+# This section reads in the data outlining the roster, student and requests information,
+# and puts it into ruby data structers used by the program.
+# For now, that information is defined in "test_case_1.rb".
+
+
+require json
+
+require test_case_1
+
+shifts = 
+
+max_iter = 100
+
+
+
+### update roter with new request information
+requests.each{|request| 
+	request['blocks'].each{|block_id| 
+		roster[block_id]['inactive_requests'].append(request['id'])
+	} 
+}
+
+n = roster.length
+
+### generate all possible permutations (set min/max shift time here)
+min_blocks = 4
+max_blocks = 12
+
+permutations[i
+
+
+#
+#
+#
+#################
+#################
+#################
+    #DEFINITIONS
+#
+#
+#
 
 def get_best_permutation(request_id,current_block,drop) 
 ## assign a score to each of the permutations for the given request based on 
-## the cost/benefit to the individual student and to the overall roster.
+## the cost/benefit to the individual employee and to the overall roster.
 ## return the score and ID highest scoring permutation to compare with other requests.
 	
 	add_list = []
 	drop_list = []	
 	block_cost = []
 	permutations = requests[request_id]['permutations']
-	time_over = students[requests[request_id]['sudent']]['hours_over']
-	time_scheduled = student[requests[request_id]['student']['time_scheduled']
+	time_over = employees[requests[request_id]['employee_id']]['blocks_over']
+	blocks_under = employees[requests[request_id['employee_id']['blocks_under']
+	num_scheduled_blocks = student[requests[request_id]['employee_id']['num_scheduled_blocks']
 	perm_list = []
 
 	### make a list of those permutations which include the current block and those which do not.
@@ -32,7 +77,7 @@ def get_best_permutation(request_id,current_block,drop)
 	end	
 		
 	for i in perm_list
-		student_cost = students[student_id][
+		employee_cost = employee[id][
 		roster_cost = 0
 		for q in requests[request_id]['permutations'][i]
 			roster_cost += block_cost[q]
@@ -74,25 +119,19 @@ end
 
 
 
-	###################
-	###################
-	###################
-	      #SETUP
-### This needs some work, basically this whole part will turn the roster files into data structures for the algorithm...
-
-shifts = 
-
-max_iter = 
-
-n = roster.length
 
 
 
-
-	###################
-	###################
-	###################
-	      #MAIN
+#
+#
+#
+###################
+###################
+###################
+      #MAIN
+#
+#
+#
 
 while count < max_iter
 	order = Array.new(n) {|i| i+1}

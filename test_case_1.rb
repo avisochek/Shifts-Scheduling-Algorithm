@@ -229,11 +229,21 @@ employees = [
 
 ]
 
-### Generate requests randomly... each employee requests an amount of time that is between twice the minimum and twice the maximum amount of requested time.
+### Generate requests randomly... each employee makes 5 requests at random times each day,
+### requests are between 10 and 25 blocks.
 
 requests = []
-
-i=0
-employees.each{|employee| 
+request_id=0
+employees.each{|employee|
 	
+	[*0..4].shuffle.each{ |day| ## assign four random requests to each employee
+		request_length = 10 + rand(15)
+		request_time_of_day = rand(40+request_length) - request_length
+		request_time_of_day = 0 if (request_time_of_day < 0)
+		request_time_of_day = (40-request_length) if (request_time_of_day > (40-request_length))
+		request_blocks = 40*day + request_time_of_day
+		request = {"id" => request_id,"blocks"=>request_blocks,"employee"=>employee["id"],active_permutation=>0,permutations => [{"id"=>0,"blocks"=>[]}]}
+		request_id+=1
+
+
 }

@@ -3,6 +3,7 @@
 A program in ruby that optimizes employee scheduling based on employee preferences and staffing requirements. 
 
 Heres how it works:
+
 1. A blank roster is created indicating which employees are needed at what times. The roster is divided into discrete blocks of time, referred to here as "blocks". 
 
 2. Each employee indicates the times on the schedule that they are capable of working as well as their preferences for the minumum and maximum hours that they would like to work.

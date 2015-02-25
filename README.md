@@ -19,3 +19,5 @@ Heres how it works:
 5. Select all of the active requests if the current block is overstaffed, or all of the inactive requests if the current block is understaffed. For each request in the list, select all of the permutations that either include (understaffed) or exclude (overstaffed) the current block and assign each permutation a score. The score should indicate how well the selection of the given permutation over the active permutation for that request impacts the overall roster, and the individual employee.
 
 6. Find the best scoring permutation for each request in the list, Then find request with the best scoring permutation. Change the active permutation for that request to the new permutation, and update the roster accordingly.
+
+
